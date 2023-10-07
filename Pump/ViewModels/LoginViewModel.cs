@@ -6,7 +6,7 @@ namespace Pump.ViewModels
 {
     internal class LoginViewModel : INotifyPropertyChanged
     {
-        public string webApiKey = "AIzaSyCr4cimN4UVgJ90g1WD99XguCBCMMqS0uk";
+        public string webApiKey = "AIzaSyAEbwfahF3pWE_zADkI1lzD13noj1GhJF4";
         private INavigation _navigation;
         private string userName;
         private string userPassword;
