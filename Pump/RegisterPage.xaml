@@ -32,6 +32,7 @@
         Padding="20,50,20,0"
         HorizontalOptions="FillAndExpand"
         RowSpacing="20"
+        ColumnSpacing="20"
         VerticalOptions="FillAndExpand">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -39,22 +40,30 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
         <Label
             Grid.Row="0"
+            Grid.ColumnSpan="2"
             FontAttributes="Bold"
             FontSize="24"
             HorizontalOptions="CenterAndExpand"
-            Text="Registration"
+            Text="Cadastro"
             TextColor="#1C375C" />
         <Label
             Grid.Row="1"
+            Grid.ColumnSpan="2"
             Margin="0,-15,0,0"
             HorizontalOptions="CenterAndExpand"
-            Text="Register With Email"
+            Text="Forneça-nos algumas informações iniciais para conseguirmos te guiar ao seu objetivo!"
             TextColor="#1C375C" />
         <Entry
             Grid.Row="2"
+            Grid.ColumnSpan="2"
             Margin="0,20,0,0"
             HorizontalOptions="FillAndExpand"
             Placeholder="Email"
@@ -62,20 +71,28 @@
             VerticalOptions="FillAndExpand" />
         <Entry
             Grid.Row="3"
+            Grid.ColumnSpan="2"
             HorizontalOptions="FillAndExpand"
             IsPassword="True"
-            Placeholder="Password"
+            Placeholder="Senha"
             Text="{Binding Password}"
             VerticalOptions="FillAndExpand" />
+
         <Button
             Grid.Row="4"
             BackgroundColor="#1C375C"
             Command="{Binding RegisterUser}"
             CornerRadius="20"
-            Text="Register" />
-    </Grid>
-    <!--</Frame>
-    </Grid>-->
+            Text="Cadastrar" />
 
+        <Button
+            Grid.Row="4"
+            Grid.Column="2"
+            BackgroundColor="#1C375C"
+            Command="{Binding BackBtn}"
+            CornerRadius="20"
+            Text="Voltar" />
+
+    </Grid>
 
 </ContentPage>

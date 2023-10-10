@@ -1,14 +1,15 @@
-﻿using Pump.ViewModels;
+﻿using Microsoft.Extensions.Configuration;
+using Pump.ViewModels;
 
 namespace Pump
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegisterPage : ContentPage
     {
-        public RegisterPage()
+        public RegisterPage(IConfiguration config)
         {
             InitializeComponent();
-            BindingContext = new RegisterViewModel(Navigation);
+            BindingContext = new RegisterViewModel(Navigation, config);
         }
     }
 }
