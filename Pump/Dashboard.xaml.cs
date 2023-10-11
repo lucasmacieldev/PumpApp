@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
-using Pump.Application.Models;
-using Pump.Application.Services;
+using Plugin.CloudFirestore;
 
 namespace Pump
 {
@@ -13,22 +12,20 @@ namespace Pump
             GetProfileInfo();
         }
 
+
         private async void GetProfileInfo()
         {
-
             var userInfo = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("FreshFirebaseToken", ""));
             UserEmail.Text = userInfo.User.Email;
 
-            var user = new UserInfosModel 
-            { 
-                Altura = "172",
-                Peso = "76",
-                UID = "12314"
-            };
+            var response = await CrossCloudFirestore.Current
+                                     .Instance
+                                     .Collection("UserMetaDataModel")
+                                     .WhereEqualsTo("Email", userInfo.User.Email)
+                                     .GetAsync();
 
-
-            //var xpto = await UserService.GetUserAsync(user);
-
+            if (response.Count == 0)
+                await Navigation.PushAsync(new FirstAccess());
         }
     }
 }

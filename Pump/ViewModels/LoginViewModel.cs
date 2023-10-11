@@ -10,7 +10,6 @@ namespace Pump.ViewModels
     {
         private INavigation _navigation;
         IConfiguration configuration;
-
         private string userName;
         private string userPassword;
         public event PropertyChangedEventHandler PropertyChanged;

@@ -83,8 +83,7 @@ namespace Pump.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
-                    throw;
+                    await App.Current.MainPage.DisplayAlert("Erro", ex.Message, "OK");
                 }
             }
         }

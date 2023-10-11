@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1067231373453",
+    "firebase_url": "https://pump-209f1-default-rtdb.firebaseio.com",
+    "project_id": "pump-209f1",
+    "storage_bucket": "pump-209f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067231373453:android:6d29a65b054af6a9945ac4",
+        "android_client_info": {
+          "package_name": "com.companyname.pump"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-pk2pyCtlrT_cSMMCX8ycdKqNJTCe4I0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
