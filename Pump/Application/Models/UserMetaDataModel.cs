@@ -10,6 +10,7 @@ namespace Pump.Application.Models
     {
         public string Email { get; set; }
         public string Peso { get; set; }
+        public string PesoLivreGordura { get; set; }
         public string Altura { get; set; }
         public string PanturrilaDireita { get; set; }
         public string PanturrilaEsquerda { get; set; }

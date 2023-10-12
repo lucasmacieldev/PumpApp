@@ -15,6 +15,12 @@ namespace Pump
         void OnPickerSelectedIndexChanged(object sender, EventArgs e)
         {
             var picker = (Picker)sender;
+            int selectedIndex = picker.SelectedIndex;
+
+            if (selectedIndex != -1)
+            {
+                labelname.Text = picker.Items[selectedIndex];
+            }
         }
     }
 }

@@ -43,8 +43,8 @@
             Grid.Row="1"
             Grid.ColumnSpan="2"
             Margin="0,-15,0,0"
-            HorizontalOptions="CenterAndExpand"
-            Text="Forneça-nos algumas informações iniciais para conseguirmos te guiar ao seu objetivo!"
+            HorizontalOptions="Center"
+            Text="Forneça-nos algumas informações iniciais para conseguirmos te guiar ao seu objetivo! &#10;&#10;Instruções básicas!&#10;Medidas em CM sem Vírgulas ou Pontos.&#10;Peso em KG."
             TextColor="#1C375C"
             />
 
@@ -57,6 +57,8 @@
                 ItemsSource="{Binding Sexo}"
                 ItemDisplayBinding="{Binding Name}"
                 SelectedIndexChanged="OnPickerSelectedIndexChanged"/>
+
+            <Entry IsVisible="false" x:Name="labelname" Text="{Binding Labelname}" />
         </StackLayout>
 
         <Entry
@@ -195,12 +197,22 @@
             Keyboard="Numeric"
             MaxLength="3"/>
 
+        <Entry
+            Grid.Row="10"
+            Grid.Column="2"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Peso Livre de Gordura"
+            Text="{Binding PesoLivreGordura}"
+            VerticalOptions="FillAndExpand"
+            Keyboard="Numeric"
+            MaxLength="3"/>
+
         <Button
             Grid.Row="11"
             BackgroundColor="#1C375C"
             Command="{Binding SkipBtn}"
             CornerRadius="20"
-            Text="Voltar" />
+            Text="Pular Etapa" />
 
         <Button
             Grid.Row="11"

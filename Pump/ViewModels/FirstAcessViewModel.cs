@@ -11,15 +11,7 @@ namespace Pump.ViewModels
         #region vars
         private INavigation _navigation;
         public event PropertyChangedEventHandler PropertyChanged;
-        //public string email { get; set; }
-        //public string Email
-        //{
-        //    get => email; set
-        //    {
-        //        email = value;
-        //        RaisePropertyChanged("Email");
-        //    }
-        //}
+
         public string peso { get; set; }
         public string Peso
         {
@@ -158,6 +150,25 @@ namespace Pump.ViewModels
             }
         }
 
+        public string pesoLivreGordura { get; set; }
+        public string PesoLivreGordura
+        {
+            get => pesoLivreGordura; set
+            {
+                pesoLivreGordura = value;
+                RaisePropertyChanged("PesoLivreGordura");
+            }
+        }
+
+        public string labelname { get; set; }
+        public string Labelname
+        {
+            get => labelname; set
+            {
+                labelname = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("labelname"));
+            }
+        }
         public class Sexos
         {
             public string Name { get; set; }
@@ -187,36 +198,41 @@ namespace Pump.ViewModels
             };
         }
 
-        public event EventHandler OnPickerSelectedIndexChanged;
+        //public event EventHandler OnPickerSelectedIndexChanged;
 
         private async void FirstAccessTappedAsync(object obj)
         {
-            var userInfo = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("FreshFirebaseToken", ""));
-            var newItem = new UserMetaDataModel
-            {
-                Email = userInfo.User.Email,
-                Peso = Peso,
-                Altura = Altura,
-                PanturrilaDireita = PanturrilaDireita,
-                PanturrilaEsquerda = PanturrilaEsquerda,
-                CoxaDireita = CoxaDireita,
-                CoxaEsquerda = CoxaEsquerda,
-                BicepsEsquerda = BicepsEsquerda,
-                BicepsDireto = BicepsDireto,
-                AnteBracoDireto = AnteBracoDireto,
-                AnteBracoEsquerdo = AnteBracoEsquerdo,
-                PunhoEsquerdo = PunhoEsquerdo,
-                PunhoDireto = PunhoDireto,
-                Peitoral = Peitoral,
-                Cintura = Cintura,
-                Pescoco = Pescoco
-            };
             try
             {
+                var userInfo = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("FreshFirebaseToken", ""));
+                var newItem = new UserMetaDataModel
+                {
+                    Email = userInfo.User.Email,
+                    Peso = Peso,
+                    Altura = Altura,
+                    PanturrilaDireita = PanturrilaDireita,
+                    PanturrilaEsquerda = PanturrilaEsquerda,
+                    CoxaDireita = CoxaDireita,
+                    CoxaEsquerda = CoxaEsquerda,
+                    BicepsEsquerda = BicepsEsquerda,
+                    BicepsDireto = BicepsDireto,
+                    AnteBracoDireto = AnteBracoDireto,
+                    AnteBracoEsquerdo = AnteBracoEsquerdo,
+                    PunhoEsquerdo = PunhoEsquerdo,
+                    PunhoDireto = PunhoDireto,
+                    Peitoral = Peitoral,
+                    Cintura = Cintura,
+                    Pescoco = Pescoco,
+                    PesoLivreGordura = PesoLivreGordura,
+                    Sexo = Labelname
+                };
+
                 await CrossCloudFirestore.Current
                   .Instance
                   .Collection("UserMetaDataModel")
                   .AddAsync(newItem);
+
+                await this._navigation.PushAsync(new Dashboard());
             }
             catch (Exception)
             {
@@ -227,7 +243,27 @@ namespace Pump.ViewModels
 
         private async void SkipBtnTappedAsync(object obj)
         {
-            await this._navigation.PushAsync(new Dashboard());
+            await App.Current.MainPage.DisplayAlert("Erro", "Tudo bem, Porem para conseguirmos te auxiliar precisamos de todas informações, caso você queria, pode atualizar os seus dados em seu perfil!", "OK");
+
+            try
+            {
+                var userInfo = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("FreshFirebaseToken", ""));
+                var newItem = new UserMetaDataModel
+                {
+                    Email = userInfo.User.Email
+                };
+
+                await CrossCloudFirestore.Current
+                  .Instance
+                  .Collection("UserMetaDataModel")
+                  .AddAsync(newItem);
+
+                await this._navigation.PushAsync(new Dashboard());
+            }
+            catch (Exception)
+            {
+                await App.Current.MainPage.DisplayAlert("Erro", "Algo de errado aconteceu, tente novamente mais tarde!", "OK");
+            }
         }
     }
 }

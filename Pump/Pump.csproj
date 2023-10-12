@@ -64,6 +64,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
 		<PackageReference Include="FirebaseAdmin" Version="2.4.0" />
 		<PackageReference Include="FirebaseAuthentication.net" Version="3.7.2" />
 		<PackageReference Include="FirebaseDatabase.net" Version="4.2.0" />
@@ -76,12 +77,30 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="FlyoutMenuPage.xaml.cs">
+	    <DependentUpon>FlyoutMenuPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="FlyoutDetailsPage.xaml.cs">
+	    <DependentUpon>FlyoutDetailsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="FlyoutSamplePage.xaml.cs">
+	    <DependentUpon>FlyoutSamplePage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="FirstAccess.xaml.cs">
 	    <DependentUpon>FirstAccess.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="FlyoutMenuPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="FlyoutDetailsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="FlyoutSamplePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="FirstAccess.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
