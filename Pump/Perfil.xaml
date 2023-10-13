@@ -7,12 +7,214 @@
     Title= "Perfil"
     NavigationPage.HasBackButton="False" Shell.NavBarIsVisible="False" >
 
-    <Label
-        Grid.Row="0"
-        Grid.ColumnSpan="2"
-        FontAttributes="Bold"
-        FontSize="24"
-        HorizontalOptions="CenterAndExpand"
-        Text="Perfil"
-        TextColor="#1C375C"/>
+    <Grid
+    Padding="20,50,20,0"
+    HorizontalOptions="FillAndExpand"
+    RowSpacing="20"
+    ColumnSpacing="20"
+    VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label
+            Grid.Row="0"
+            Grid.ColumnSpan="2"
+            FontAttributes="Bold"
+            FontSize="24"
+            HorizontalOptions="CenterAndExpand"
+            Text="Primeiro acesso!"
+            TextColor="#1C375C"/>
+        <Label
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Margin="0,-15,0,0"
+            HorizontalOptions="Center"
+            Text="Suas informações!&#10;Atualize seu peso e suas medidas!"
+            TextColor="#1C375C"
+            />
+
+        <StackLayout
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <Picker Title="Selecione o Sexo"
+                ItemsSource="{Binding Sexo}"
+                ItemDisplayBinding="{Binding Name}"
+                SelectedIndexChanged="OnPickerSelectedIndexChanged"/>
+
+            <Entry IsVisible="false" x:Name="labelname" Text="{Binding Labelname}" />
+        </StackLayout>
+
+        <Entry
+            Grid.Row="3"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Peso"
+            Text="{Binding Peso}"
+            VerticalOptions="FillAndExpand"
+            Keyboard="Numeric"
+            MaxLength="3"/>
+        <Entry
+            Grid.Row="3"
+            Grid.Column="2"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Altura"
+            Text="{Binding Altura}"
+            VerticalOptions="FillAndExpand"
+            Keyboard="Numeric"
+            MaxLength="3"/>
+
+        <Entry
+            Grid.Row="4"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Panturrilha Direita"
+            Text="{Binding PanturrilaDireita}"
+            VerticalOptions="FillAndExpand"
+            Keyboard="Numeric"
+            MaxLength="3"/>
+        <Entry
+            Grid.Row="4"
+            Grid.Column="2"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Panturrilha Esquerda"
+            Text="{Binding PanturrilaEsquerda}"
+            VerticalOptions="FillAndExpand"
+            Keyboard="Numeric"
+            MaxLength="3"/>
+
+        <Entry
+            Grid.Row="5"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Coxa Direita"
+            Text="{Binding CoxaDireita}"
+            VerticalOptions="FillAndExpand"
+            Keyboard="Numeric"
+            MaxLength="3"/>
+
+        <Entry
+            Grid.Row="5"
+            Grid.Column="2"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Coxa Esquerda"
+            Text="{Binding CoxaEsquerda}"
+            VerticalOptions="FillAndExpand"
+            Keyboard="Numeric"
+            MaxLength="3"/>
+
+        <Entry
+            Grid.Row="6"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Biceps Direito"
+            Text="{Binding BicepsDireto}"
+            VerticalOptions="FillAndExpand"
+            Keyboard="Numeric"
+            MaxLength="3"/>
+        <Entry
+            Grid.Row="6"
+             Grid.Column="2"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Biceps Esquerdo"
+            Text="{Binding BicepsEsquerda}"
+            VerticalOptions="FillAndExpand" 
+            Keyboard="Numeric"
+            MaxLength="3"/>
+
+        <Entry
+            Grid.Row="7"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Ante Braço Direto"
+            Text="{Binding AnteBracoDireto}"
+            VerticalOptions="FillAndExpand" 
+            Keyboard="Numeric"
+            MaxLength="3"/>
+        <Entry
+            Grid.Row="7"
+             Grid.Column="2"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Ante Braço Esquerdo"
+            Text="{Binding AnteBracoEsquerdo}"
+            VerticalOptions="FillAndExpand" 
+            Keyboard="Numeric"
+            MaxLength="3"/>
+
+        <Entry
+            Grid.Row="8"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Punho Direito"
+            Text="{Binding PunhoDireto}"
+            VerticalOptions="FillAndExpand"
+            Keyboard="Numeric"
+            MaxLength="3"/>
+        <Entry
+            Grid.Row="8"
+            Grid.Column="2"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Punho Esquerdo"
+            Text="{Binding PunhoEsquerdo}"
+            VerticalOptions="FillAndExpand"
+            Keyboard="Numeric"
+            MaxLength="3"/>
+
+        <Entry
+            Grid.Row="9"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Peitoral"
+            Text="{Binding Peitoral}"
+            VerticalOptions="FillAndExpand"
+            Keyboard="Numeric"
+            MaxLength="3"/>
+        <Entry
+            Grid.Row="9"
+            Grid.Column="2"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Cintura"
+            Text="{Binding Cintura}"
+            VerticalOptions="FillAndExpand"
+            Keyboard="Numeric"
+            MaxLength="3"/>
+
+        <Entry
+            Grid.Row="10"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Pescoço"
+            Text="{Binding Pescoco}"
+            VerticalOptions="FillAndExpand"
+            Keyboard="Numeric"
+            MaxLength="3"/>
+
+        <Entry
+            Grid.Row="10"
+            Grid.Column="2"
+            HorizontalOptions="FillAndExpand"
+            Placeholder="Peso Livre de Gordura"
+            Text="{Binding PesoLivreGordura}"
+            VerticalOptions="FillAndExpand"
+            Keyboard="Numeric"
+            MaxLength="3"/>
+
+
+        <Button
+            Grid.Row="11"
+            Grid.ColumnSpan="2"
+            BackgroundColor="#1C375C"
+            Command="{Binding RegisterBtn}"
+            CornerRadius="20"
+            Text="Atualizar dados" />
+    </Grid>
 </ContentPage>
