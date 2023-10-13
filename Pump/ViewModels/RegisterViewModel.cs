@@ -72,7 +72,7 @@ namespace Pump.ViewModels
             {
                 try
                 {
-                    var apiKey = configuration.GetRequiredSection("Settings").Get<Settings>().ApiKey;
+                    var apiKey = Settings.ApiKey;
                     var authProvider = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
                     var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(Email, Password);
                     string token = auth.FirebaseToken;
@@ -90,7 +90,7 @@ namespace Pump.ViewModels
 
         private async void BackBtnTappedAsync(object obj)
         {
-            await this._navigation.PushAsync(new MainPage(configuration));
+            await this._navigation.PushAsync(new MainPage());
         }
     }
 }

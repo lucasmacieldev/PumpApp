@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Configuration;
 using System.Reflection;
 
 namespace Pump
@@ -11,10 +12,12 @@ namespace Pump
 
             builder
                .UseMauiApp<App>()
+               .UseMauiCommunityToolkit()
                .ConfigureFonts(fonts =>
                {
                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                   fonts.AddFont("material_icon_regulara.ttf", "MaterialIcon");
                });
 
             builder.Services.AddTransient<MainPage>();

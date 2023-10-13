@@ -43,7 +43,6 @@ namespace Pump.ViewModels
             this._navigation = navigation;
             RegisterBtn = new Command(RegisterBtnTappedAsync);
             LoginBtn = new Command(LoginBtnTappedAsync);
-
         }
 
       
@@ -69,7 +68,7 @@ namespace Pump.ViewModels
             var resultValid = ValidateForm();
             if (resultValid)
             {
-                var apiKey = "AIzaSyAEbwfahF3pWE_zADkI1lzD13noj1GhJF4";
+                var apiKey = Settings.ApiKey;
 
                 var authProvider = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
                 try

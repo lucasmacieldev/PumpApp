@@ -6,7 +6,7 @@ namespace Pump
     public partial class MainPage : ContentPage
     {
 
-        public MainPage(IConfiguration config)
+        public MainPage()
         {
             InitializeComponent();
             BindingContext = new LoginViewModel(Navigation);

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Pump"
+             xmlns:models="crl-namespace:Pump.Models"
+             x:Class="Pump.MenuPage"
+             Title="MenuPage"
+             IsVisible="True">
+
+    <TabBar x:Name="TabsPaginas">
+        <Tab Title="Resumo" Icon="dash.svg">
+            <ShellContent ContentTemplate="{DataTemplate local:Dashboard}"/>
+        </Tab>
+        <Tab Title="Início" Icon="home.svg">
+            <ShellContent ContentTemplate="{DataTemplate local:Home}"/>
+        </Tab>
+        <Tab Title="Perfil" Icon="person.svg">
+            <ShellContent ContentTemplate="{DataTemplate local:Perfil}"/>
+        </Tab>
+        <Tab Title="Sair" Icon="logout.svg" >
+            <ShellContent ContentTemplate="{DataTemplate local:Logout}"/>
+        </Tab>
+    </TabBar>
+
+</Shell>

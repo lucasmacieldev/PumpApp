@@ -11,4 +11,17 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
+
+    <Application.MainPage>
+        <Shell>
+            <TabBar x:Name="TabsPaginas">
+                <Tab Title="Dashboard" Icon="pag1.png">
+                    <ShellContent ContentTemplate="{DataTemplate local:Dashboard}"/>
+                </Tab>
+                <Tab Title="FirstAccess" Icon="pag2.png">
+                    <ShellContent ContentTemplate="{DataTemplate local:FirstAccess}"/>
+                </Tab>
+            </TabBar>
+        </Shell>
+    </Application.MainPage>
 </Application>

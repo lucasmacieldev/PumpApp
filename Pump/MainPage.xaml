@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     BackgroundColor="{DynamicResource SecondaryColor}"
     xmlns:ViewModel="clr-namespace:Pump.ViewModels"
-    NavigationPage.HasNavigationBar="False">
+    NavigationPage.HasNavigationBar="False"  Shell.NavBarIsVisible="False" Shell.TabBarIsVisible="false">
 
     <ContentPage.Content>
         <Grid

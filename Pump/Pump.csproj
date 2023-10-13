@@ -51,6 +51,10 @@
 	<ItemGroup>
 	  <None Remove="appsettings.json" />
 	  <None Remove="Platforms\Android\google-services.json" />
+	  <None Remove="Resources\Images\dash.svg" />
+	  <None Remove="Resources\Images\home.svg" />
+	  <None Remove="Resources\Images\logout.svg" />
+	  <None Remove="Resources\Images\person.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -64,6 +68,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
 		<PackageReference Include="FirebaseAdmin" Version="2.4.0" />
 		<PackageReference Include="FirebaseAuthentication.net" Version="3.7.2" />
@@ -77,14 +82,20 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="AppShell.xaml.cs">
+	    <DependentUpon>AppShell.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Home.xaml.cs">
+	    <DependentUpon>Home.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Perfil.xaml.cs">
+	    <DependentUpon>Perfil.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Logout.xaml.cs">
+	    <DependentUpon>Logout.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="FlyoutMenuPage.xaml.cs">
 	    <DependentUpon>FlyoutMenuPage.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="FlyoutDetailsPage.xaml.cs">
-	    <DependentUpon>FlyoutDetailsPage.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="FlyoutSamplePage.xaml.cs">
-	    <DependentUpon>FlyoutSamplePage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="FirstAccess.xaml.cs">
 	    <DependentUpon>FirstAccess.xaml</DependentUpon>
@@ -92,19 +103,28 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="AppShell.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Home.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Perfil.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Logout.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="FlyoutMenuPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="FlyoutDetailsPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="FlyoutSamplePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="FirstAccess.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Dashboard.xaml">
+	    <Generator></Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="MenuPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="RegisterPage.xaml">

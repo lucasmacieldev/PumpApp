@@ -1,52 +1,34 @@
 ﻿using Newtonsoft.Json;
 using Plugin.CloudFirestore;
-using Pump.ViewModels;
+using Microsoft.Extensions.Configuration;
 
 namespace Pump
 {
-    public partial class Dashboard : FlyoutPage
+    public partial class Dashboard : ContentPage
     {
         public Dashboard()
         {
             InitializeComponent();
-            //GetProfileInfo();
-            flyoutPage.collectionViewFlyout.SelectionChanged += OnSelectionChanged;
-
+            GetProfileInfo();
         }
 
-        void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void GetProfileInfo()
         {
-            var item = e.CurrentSelection.FirstOrDefault() as FlyoutPageItem;
-            if (item != null)
+            var userInfo = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("FreshFirebaseToken", ""));
+            if (userInfo == null)
+                await Navigation.PushAsync(new MainPage());
+            else
             {
+                var response = await CrossCloudFirestore.Current
+                         .Instance
+                         .Collection("UserMetaDataModel")
+                         .WhereEqualsTo("Email", userInfo.User.Email)
+                         .GetAsync();
 
-                if (!((IFlyoutPageController)this).ShouldShowSplitMode)
-                    IsPresented = false;
-
-                //switch (item.Title)
-                //{
-                //    case "Dashboard":
-                //        Detail = new NavigationPage(new Dashboard());
-
-                //        break;
-
-                //}
+                if (response.Count == 0)
+                    await Navigation.PushAsync(new FirstAccess());
             }
+
         }
-
-        //private async void GetProfileInfo()
-        //{
-        //    var userInfo = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("FreshFirebaseToken", ""));
-        //    UserEmail.Text = userInfo.User.Email;
-
-        //    var response = await CrossCloudFirestore.Current
-        //                             .Instance
-        //                             .Collection("UserMetaDataModel")
-        //                             .WhereEqualsTo("Email", userInfo.User.Email)
-        //                             .GetAsync();
-
-        //    if (response.Count == 0)
-        //        await Navigation.PushAsync(new FirstAccess());
-        //}
     }
 }

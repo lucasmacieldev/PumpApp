@@ -7,8 +7,9 @@ namespace Pump
         public App(IConfiguration config)
         {
             InitializeComponent();
-
-            MainPage = new MainPage(config);
+            //MainPage = new NavigationPage(new MainPage(config));
+            MainPage = new MenuPage();
+            
         }
     }
 }
