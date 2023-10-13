@@ -3,16 +3,45 @@
     x:Class="Pump.Dashboard"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Pump"
+    xmlns:local="clr-namespace:Pump;assembly=Pump"
     Title= "Dashboard"
-    NavigationPage.HasBackButton="False" Shell.NavBarIsVisible="False" >
+    NavigationPage.HasBackButton="False" Shell.NavBarIsVisible="False" 
+    xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui">
+    <ContentPage.BindingContext>
+        <local:ViewModels.ChartModels/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
 
-    <Label
-        Grid.Row="0"
-        Grid.ColumnSpan="2"
-        FontAttributes="Bold"
-        FontSize="24"
-        HorizontalOptions="CenterAndExpand"
-        Text="Primeiro acesso!"
-        TextColor="#1C375C"/>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <lvc:CartesianChart
+                 Grid.Row="0"
+                Series="{Binding Series}"
+                XAxes="{Binding XAxes}"
+                YAxes="{Binding YAxes}">
+            </lvc:CartesianChart>
+
+
+            <lvc:CartesianChart
+                 Grid.Row="1"
+                Series="{Binding Series}"
+                XAxes="{Binding XAxes}"
+                YAxes="{Binding YAxes}">
+            </lvc:CartesianChart>
+
+            <lvc:CartesianChart
+                 Grid.Row="2"
+                Series="{Binding Series}"
+                XAxes="{Binding XAxes}"
+                YAxes="{Binding YAxes}">
+            </lvc:CartesianChart>
+
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>

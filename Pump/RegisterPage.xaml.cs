@@ -5,10 +5,10 @@ namespace Pump
 {
     public partial class RegisterPage : ContentPage
     {
-        public RegisterPage(IConfiguration config)
+        public RegisterPage()
         {
             InitializeComponent();
-            BindingContext = new RegisterViewModel(Navigation, config);
+            BindingContext = new RegisterViewModel(Navigation);
         }
     }
 }

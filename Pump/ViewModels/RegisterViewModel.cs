@@ -7,7 +7,6 @@ namespace Pump.ViewModels
 {
     internal class RegisterViewModel : INotifyPropertyChanged
     {
-        IConfiguration configuration;
         private INavigation _navigation;
         private string email;
         private string password;
@@ -40,13 +39,11 @@ namespace Pump.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(v));
         }
 
-        public RegisterViewModel(INavigation navigation, IConfiguration config)
+        public RegisterViewModel(INavigation navigation)
         {
             this._navigation = navigation;
             RegisterUser = new Command(RegisterUserTappedAsync);
             BackBtn = new Command(BackBtnTappedAsync);
-            
-            configuration = config;
         }
         private bool ValidateForm()
         {

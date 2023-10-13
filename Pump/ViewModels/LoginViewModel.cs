@@ -9,7 +9,6 @@ namespace Pump.ViewModels
     internal class LoginViewModel : INotifyPropertyChanged
     {
         private INavigation _navigation;
-        IConfiguration configuration;
         private string userName;
         private string userPassword;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -88,7 +87,7 @@ namespace Pump.ViewModels
 
         private async void RegisterBtnTappedAsync(object obj)
         {
-            await this._navigation.PushAsync(new RegisterPage(configuration));
+            await this._navigation.PushAsync(new RegisterPage());
         }
     }
 }

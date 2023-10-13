@@ -1,15 +1,19 @@
-﻿using Microsoft.Extensions.Configuration;
-
-namespace Pump
+﻿namespace Pump
 {
     public partial class App 
     {
-        public App(IConfiguration config)
+        public App()
         {
             InitializeComponent();
-            //MainPage = new NavigationPage(new MainPage(config));
             MainPage = new MenuPage();
-            
         }
+
+        protected override void OnStart()
+        {
+            UserAppTheme = AppTheme.Light;
+            base.OnStart();
+        }
+
+        public record City(string Name, double Population);
     }
 }

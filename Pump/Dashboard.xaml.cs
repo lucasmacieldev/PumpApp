@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
 using Plugin.CloudFirestore;
-using Microsoft.Extensions.Configuration;
-
 namespace Pump
 {
     public partial class Dashboard : ContentPage

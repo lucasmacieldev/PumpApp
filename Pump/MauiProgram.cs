@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Configuration;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 using System.Reflection;
 
 namespace Pump
@@ -12,6 +13,7 @@ namespace Pump
 
             builder
                .UseMauiApp<App>()
+               .UseSkiaSharp(true)
                .UseMauiCommunityToolkit()
                .ConfigureFonts(fonts =>
                {
