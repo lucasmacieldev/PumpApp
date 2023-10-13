@@ -13,7 +13,7 @@ namespace Pump
         {
             InitializeComponent();
             flyoutPageItems.Add(new FlyoutPageItem { Title = "Home", MenuIcon = "home.png" });
-            flyoutPageItems.Add(new FlyoutPageItem { Title = "Contacts", MenuIcon = "contacts.png" });
+            flyoutPageItems.Add(new FlyoutPageItem { Title = "Dashboard", MenuIcon = "contacts.png" });
             flyoutPageItems.Add(new FlyoutPageItem { Title = "Settings", MenuIcon = "settings.png" });
 
             collectionViewFlyout.ItemsSource = flyoutPageItems;

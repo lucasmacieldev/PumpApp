@@ -9,7 +9,7 @@ namespace Pump
         public MainPage(IConfiguration config)
         {
             InitializeComponent();
-            BindingContext = new LoginViewModel(Navigation, config);
+            BindingContext = new LoginViewModel(Navigation);
         }
     }
 }

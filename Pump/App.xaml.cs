@@ -8,7 +8,7 @@ namespace Pump
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage(config));
+            MainPage = new MainPage(config);
         }
     }
 }

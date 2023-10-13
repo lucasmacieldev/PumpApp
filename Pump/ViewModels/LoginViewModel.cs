@@ -38,13 +38,12 @@ namespace Pump.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(v));
         }
 
-        public LoginViewModel(INavigation navigation, IConfiguration config)
+        public LoginViewModel(INavigation navigation)
         {
             this._navigation = navigation;
             RegisterBtn = new Command(RegisterBtnTappedAsync);
             LoginBtn = new Command(LoginBtnTappedAsync);
 
-            configuration = config;
         }
 
       
@@ -70,7 +69,7 @@ namespace Pump.ViewModels
             var resultValid = ValidateForm();
             if (resultValid)
             {
-                var apiKey = configuration.GetRequiredSection("Settings").Get<Settings>().ApiKey;
+                var apiKey = "AIzaSyAEbwfahF3pWE_zADkI1lzD13noj1GhJF4";
 
                 var authProvider = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
                 try

@@ -1,10 +1,11 @@
-﻿using Pump.ViewModels;
+﻿using Microsoft.Extensions.Configuration;
+using Pump.ViewModels;
 
 namespace Pump
 {
     public partial class FlyoutSamplePage : FlyoutPage
     {
-        public FlyoutSamplePage()
+        public FlyoutSamplePage(IConfiguration config)
         {
             InitializeComponent();
 
@@ -18,24 +19,17 @@ namespace Pump
             if (item != null)
             {
 
-                //if (!((IFlyoutPageController)this).ShouldShowSplitMode)
-                //    IsPresented = false;
+                if (!((IFlyoutPageController)this).ShouldShowSplitMode)
+                    IsPresented = false;
 
-                switch (item.Title)
-                {
-                    case "Home":
-                        break;
+                //switch (item.Title)
+                //{
+                //    case "Dashboard":
+                //        Detail = new NavigationPage(new Dashboard());
 
-                    //case "Contacts":
-                    //    Detail = new NavigationPage(new ContactListPage());
+                //        break;
 
-                    //    break;
-
-                    //case "Settings":
-                    //    Detail = new NavigationPage(new SettingsPage());
-
-                    //    break;
-                }
+                //}
             }
         }
     }
